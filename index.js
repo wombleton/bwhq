@@ -4,7 +4,7 @@
  */
 
 var express = require('express'),
-    exphbs = require('express-handlebars'),
+    exphbs = require('express3-handlebars'),
     routes = require('./routes'),
     http = require('http'),
     path = require('path'),
@@ -13,6 +13,7 @@ var express = require('express'),
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 app.use(express.favicon());
 app.use(express.logger('dev'));
